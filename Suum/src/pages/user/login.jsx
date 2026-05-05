@@ -6,15 +6,23 @@ function Login() {
 
     const [correo, setCorreo] = useState("");
     const [password, setPassword] = useState("");
+    const [toast, setToast] = useState(null);
 
     const navigate = useNavigate();
-    const { login } = useAuth(); // 🔥 aquí está la magia
+    const { login } = useAuth();
+
+    const showToast = (message, type = "success") => {
+        setToast({ message, type });
+
+        setTimeout(() => {
+            setToast(null);
+        }, 2500);
+    };
 
     const handleLogin = async (e) => {
         e.preventDefault();
 
         try {
-
             const res = await fetch("https://localhost:7159/api/Auth/login", {
                 method: "POST",
                 headers: {
@@ -30,27 +38,28 @@ function Login() {
 
             if (res.ok) {
 
-                // 🔥 GUARDAR USUARIO EN CONTEXTO
                 login({
                     correo: correo,
                     rol: data.rol
                 });
 
-                alert("Inicio de sesión exitoso 🎉");
+                showToast("Inicio de sesión exitoso.", "success");
 
-                if (data.rol === "admin") {
-                    navigate("/admin/dashboard");
-                } else {
-                    navigate("/");
-                }
+                setTimeout(() => {
+                    if (data.rol === "admin") {
+                        navigate("/admin/dashboard");
+                    } else {
+                        navigate("/");
+                    }
+                }, 1000);
 
             } else {
-                alert(data.message);
+                showToast("El correo o la contraseña no son correctos.", "error");
             }
 
         } catch (error) {
             console.error(error);
-            alert("Error conectando con el servidor");
+            showToast("No se pudo conectar con el servidor.", "error");
         }
     };
 
@@ -88,6 +97,31 @@ function Login() {
                 >
                     Iniciar sesión
                 </button>
+
+                {/* 🔥 MENSAJE CON COLOR */}
+                {toast && (
+                    <div className="mt-4 flex justify-center">
+                        <div
+                            className={`text-sm px-4 py-2 rounded shadow-md border transition-all duration-300
+                            ${toast.type === "success"
+                                ? "bg-green-50 text-green-700 border-green-200"
+                                : "bg-red-50 text-red-700 border-red-200"}`}
+                        >
+                            {toast.message}
+                        </div>
+                    </div>
+                )}
+
+                {/* 🌸 REGISTRO */}
+                <p className="text-sm text-center mt-4">
+                    ¿No tienes cuenta?{" "}
+                    <span
+                        onClick={() => navigate("/registro")}
+                        className="underline cursor-pointer hover:text-pink-500 transition"
+                    >
+                        Regístrate
+                    </span>
+                </p>
 
             </form>
 

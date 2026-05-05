@@ -7,7 +7,6 @@ function AdminLayout() {
   const navigate = useNavigate()
 
   const cerrarSesion = () => {
-    localStorage.removeItem("usuario")
     navigate("/")
   }
 
