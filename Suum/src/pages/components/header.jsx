@@ -52,7 +52,7 @@ function Header() {
                 onClick={() => setOpen(!open)}
                 className="bg-[#F7C6D7] px-4 py-2 rounded-full hover:bg-[#E91E63] hover:text-white transition"
               >
-                Hola, {usuario.correo.split("@")[0]} 👋
+                Hola, {usuario.correo.split("@")[0]}
               </button>
 
               {open && (
