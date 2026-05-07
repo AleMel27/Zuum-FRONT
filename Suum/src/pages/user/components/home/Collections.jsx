@@ -21,13 +21,20 @@ function Collections() {
   ];
 
   return (
-    <article className="max-w-6xl mx-auto py-10 pt-0">
+    <section className="max-w-7xl mx-auto py-20 px-4">
 
-      <h2 className="text-center font-semibold text-2xl mb-8">
-        COLECCIONES
-      </h2>
+      {/* Título */}
+      <div className="text-center mb-14">
+        <h2 className="text-3xl font-semibold mb-2">
+          Colecciones
+        </h2>
+        <p className="text-gray-500">
+          Encuentra tu estilo, define tu identidad
+        </p>
+      </div>
 
-      <div className="flex justify-center gap-8 flex-wrap">
+      {/* Grid */}
+      <div className="grid md:grid-cols-3 gap-8">
 
         {colecciones.map((c, i) => (
           <CollectionCard
@@ -40,7 +47,7 @@ function Collections() {
 
       </div>
 
-    </article>
+    </section>
   );
 }
 
