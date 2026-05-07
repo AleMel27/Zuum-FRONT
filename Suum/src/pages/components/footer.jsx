@@ -2,113 +2,66 @@ import { NavLink } from "react-router-dom";
 
 function Footer() {
   return (
-    <footer className="bg-[#24262B] px-20 pt-20 pb-10">
-      <div className="container mx-auto">
-        <div className="flex flex-wrap">
+    <footer className="bg-[#FFF3E6] pt-16 pb-8 border-t border-[#F7C6D7]">
 
-          {/* Compañia */}
-          <div className="w-full md:w-1/4 px-4 mb-8">
-            <h4 className="text-white text-xl mb-6 font-medium border-b-2 border-[#ffe2e7] pb-2 inline-block">
-              Compañia
-            </h4>
+      <div className="max-w-7xl mx-auto px-6">
 
-            <ul className="list-none p-0">
-              <li>
-                <NavLink
-                  to="/nosotros"
-                  className="text-[#BBBBBB] text-lg block mb-3 no-underline transition-all duration-300 ease-in-out hover:text-white hover:translate-x-1"
-                >
-                  Nosotros
-                </NavLink>
-              </li>
+        <div className="grid md:grid-cols-4 gap-10 mb-10">
 
-              <li>
-                <NavLink
-                  to="/servicios"
-                  className="text-[#BBBBBB] text-lg block mb-3 no-underline transition-all duration-300 ease-in-out hover:text-white hover:translate-x-1"
-                >
-                  Nuestros servicios
-                </NavLink>
-              </li>
+          {/* Marca */}
+          <div>
+            <h2 className="text-2xl font-bold text-[#E91E63] mb-3">
+              SÜÜM
+            </h2>
+            <p className="text-gray-600">
+              Diseño independiente que resalta tu identidad.
+            </p>
+          </div>
 
-              <li>
-                <NavLink
-                  to="/privacidad"
-                  className="text-[#BBBBBB] text-lg block mb-3 no-underline transition-all duration-300 ease-in-out hover:text-white hover:translate-x-1"
-                >
-                  Política de privacidad
-                </NavLink>
-              </li>
+          {/* Navegación */}
+          <div>
+            <h4 className="font-semibold mb-4">Explorar</h4>
+            <ul className="space-y-2">
+              <li><NavLink to="/" className="text-gray-600 no-underline hover:text-[#E91E63]">Inicio</NavLink></li>
+              <li><NavLink to="/vestidos" className="text-gray-600 no-underline hover:text-[#E91E63]">Vestidos</NavLink></li>
+              <li><NavLink to="/blusas" className="text-gray-600 no-underline hover:text-[#E91E63]">Blusas</NavLink></li>
+              <li><NavLink to="/pantalones" className="text-gray-600 no-underline hover:text-[#E91E63]">Pantalones</NavLink></li>
             </ul>
           </div>
 
-          {/* Contactanos */}
-          <div className="w-full md:w-1/4 px-4 mb-8">
-            <h4 className="text-white text-xl mb-6 font-medium border-b-2 border-[#ffe2e7] pb-2 inline-block">
-              Contáctanos
-            </h4>
-
-            <ul className="list-none p-0">
-              <li>
-                <NavLink
-                  to="/consultas"
-                  className="text-[#BBBBBB] text-lg block mb-3 no-underline transition-all duration-300 ease-in-out hover:text-white hover:translate-x-1"
-                >
-                  Consultas
-                </NavLink>
-              </li>
-
-              <li>
-                <NavLink
-                  to="/envios"
-                  className="text-[#BBBBBB] text-lg block mb-3 no-underline transition-all duration-300 ease-in-out hover:text-white hover:translate-x-1"
-                >
-                  Envíos
-                </NavLink>
-              </li>
-
-              <li>
-                <NavLink
-                  to="/pagos"
-                  className="text-[#BBBBBB] text-lg block mb-3 no-underline transition-all duration-300 ease-in-out hover:text-white hover:translate-x-1"
-                >
-                  Pagos
-                </NavLink>
-              </li>
+          {/* Ayuda */}
+          <div>
+            <h4 className="font-semibold mb-4">Ayuda</h4>
+            <ul className="space-y-2">
+              <li><NavLink to="/consultas" className="text-gray-600 no-underline hover:text-[#E91E63]">Consultas</NavLink></li>
+              <li><NavLink to="/envios" className="text-gray-600 no-underline hover:text-[#E91E63]">Envíos</NavLink></li>
+              <li><NavLink to="/pagos" className="text-gray-600 no-underline hover:text-[#E91E63]">Pagos</NavLink></li>
+              <li><NavLink to="/privacidad" className="text-gray-600 no-underline hover:text-[#E91E63]">Privacidad</NavLink></li>
             </ul>
           </div>
 
           {/* Redes */}
-          <div className="w-full md:w-1/4 px-4 mb-8">
-            <h4 className="text-white text-xl mb-6 font-medium border-b-2 border-[#ffe2e7] pb-2 inline-block">
-              Síguenos
-            </h4>
-
+          <div>
+            <h4 className="font-semibold mb-4">Síguenos</h4>
             <div className="flex gap-3">
-              <a
-                href="#"
-                className="flex items-center justify-center w-10 h-10 rounded-full bg-white/20 text-white transition-all duration-500 ease-in-out hover:bg-[#ffe2e7] hover:text-[#353535] no-underline"
-              >
+              <a className="text-gray-600 w-10 h-10 flex items-center no-underline justify-center rounded-full bg-[#F7C6D7] hover:bg-[#E91E63] hover:text-white transition">
                 <i className="fab fa-facebook-f"></i>
               </a>
-
-              <a
-                href="#"
-                className="flex items-center justify-center w-10 h-10 rounded-full bg-white/20 text-white transition-all duration-500 ease-in-out hover:bg-[#ffe2e7] hover:text-[#353535] no-underline"
-              >
+              <a className="text-gray-600 w-10 h-10 flex items-center no-underline justify-center rounded-full bg-[#F7C6D7] hover:bg-[#E91E63] hover:text-white transition">
                 <i className="fab fa-instagram"></i>
               </a>
-
-              <a
-                href="#"
-                className="flex items-center justify-center w-10 h-10 rounded-full bg-white/20 text-white transition-all duration-500 ease-in-out hover:text-black hover:bg-[#ffe2e7] no-underline"
-              >
+              <a className="text-gray-600 w-10 h-10 flex items-center no-underline justify-center rounded-full bg-[#F7C6D7] hover:bg-[#E91E63] hover:text-white transition">
                 <i className="fab fa-tiktok"></i>
               </a>
             </div>
           </div>
 
         </div>
+
+        <div className="text-center text-gray-500 text-sm">
+          © 2026 SÜÜM — Fuerte · Femenino · Independiente
+        </div>
+
       </div>
     </footer>
   );

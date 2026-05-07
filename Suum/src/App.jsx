@@ -8,8 +8,7 @@ import Home from "./pages/user/home.jsx"
 import Vestidos from "./pages/user/vestidos.jsx"
 import Blusas from "./pages/user/blusas.jsx"
 import Pantalones from "./pages/user/pantalones.jsx"
-import Nosotros from "./pages/user/nosotros.jsx"
-import Servicios from "./pages/user/servicios.jsx"
+import Producto from "./pages/user/Producto.jsx"
 import Privacidad from "./pages/user/privacidad.jsx"
 import Consultas from "./pages/user/consultas.jsx"
 import Envios from "./pages/user/envios.jsx"
@@ -35,8 +34,7 @@ function App() {
         <Route path="/vestidos" element={<Vestidos />} />
         <Route path="/blusas" element={<Blusas />} />
         <Route path="/pantalones" element={<Pantalones />} />
-        <Route path="/nosotros" element={<Nosotros />} />
-        <Route path="/servicios" element={<Servicios />} />
+        <Route path="/producto/:id" element={<Producto />} />
         <Route path="/privacidad" element={<Privacidad />} />
         <Route path="/consultas" element={<Consultas />} />
         <Route path="/envios" element={<Envios />} />

@@ -1,41 +1,49 @@
 import { NavLink } from "react-router-dom";
 
-function ProductCard({ nombre, precio, imagen }) {
-    return (
-        <NavLink to={`/producto/${nombre}`} className="no-underline text-black">
-            <div className="w-[260px] bg-white shadow-sm hover:shadow-md transition duration-300">
+function ProductCard({ id, nombre, precio, imagen }) {
+  return (
+    <NavLink
+      to={`/producto/${id}`}
+      className="no-underline group"
+    >
+      <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300">
 
-                <div className="relative">
-                    <img
-                        src={`https://localhost:7159${imagen}`}
-                        alt={nombre}
-                        className="w-full h-[340px] object-cover"
-                    />
+        {/* Imagen */}
+        <div className="relative overflow-hidden">
 
-                    <span className="absolute bottom-3 right-3 bg-[#f8a5a5] text-white text-xs px-3 py-1 rounded-full">
-                        Oferta
-                    </span>
-                </div>
+          <img
+            src={
+              imagen?.startsWith("http") || imagen?.startsWith("/src")
+                ? imagen
+                : `https://localhost:7159${imagen}`
+            }
+            alt={nombre}
+            className="w-full h-[340px] object-cover transform group-hover:scale-110 transition duration-500"
+          />
 
-                <div className="px-2 py-3">
+          {/* Badge */}
+          <span className="absolute top-3 left-3 bg-[#E91E63] text-white text-xs px-3 py-1 rounded-full">
+            Nuevo
+          </span>
 
-                    <h3 className="text-sm font-medium mb-1">
-                        {nombre}
-                    </h3>
+        </div>
 
-                    <p className="text-lg font-semibold mb-3">
-                        S/. {precio}
-                    </p>
+        {/* Info */}
+        <div className="p-4">
 
-                    <button className="w-full border border-black rounded-full py-2 text-sm hover:bg-black hover:text-white transition duration-300">
-                        Seleccionar opciones
-                    </button>
+          <h3 className="text-sm font-medium text-gray-800 mb-1 group-hover:text-[#E91E63] transition">
+            {nombre}
+          </h3>
 
-                </div>
+          <p className="text-lg font-bold text-[#E91E63] mb-4">
+            S/ {Number(precio).toFixed(2)}
+          </p>
 
-            </div>
-        </NavLink>
-    );
+        </div>
+
+      </div>
+    </NavLink>
+  );
 }
 
 export default ProductCard;
